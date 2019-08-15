@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url_api: 'http://sym.gesco.local:8040/',
+  url_cat: 'cat/',
 };
 
 /*
