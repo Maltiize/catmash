@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+#title-app{
+  font-family: 'Lobster', cursive;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  font-size: xx-large;
+  justify-content: center
+}
