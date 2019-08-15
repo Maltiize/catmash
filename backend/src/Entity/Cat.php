@@ -39,7 +39,7 @@ class Cat
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $vote;
+    private $nbVote;
 
     public function getId(): ?int
     {
@@ -70,14 +70,14 @@ class Cat
         return $this;
     }
 
-    public function getVote(): ?int
+    public function getNbVote(): ?int
     {
-        return $this->vote;
+        return $this->nbVote;
     }
 
-    public function setVote(?int $vote): self
+    public function setVote(?int $nbVote): self
     {
-        $this->vote = $vote;
+        $this->nbVote = $nbVote;
 
         return $this;
     }
@@ -92,12 +92,12 @@ class Cat
 
         return $this;
     }
-    public function getUrl(): ?int
+    public function getUrl(): ?string
     {
         return $this->url;
     }
 
-    public function setUrl(?int $url): self
+    public function setUrl(?string $url): self
     {
         $this->url = $url;
 
