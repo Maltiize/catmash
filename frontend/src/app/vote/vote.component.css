@@ -1,5 +1,26 @@
-
 .hero {
-    padding: 6.25rem 0px !important;
-    margin: 0px !important;
-  }
+  padding: 6.25rem 0px !important;
+  margin: 0px !important;
+}
+
+#versus-circle {
+  text-align: center;
+  justify-content: center;
+  margin-top: 160px;
+
+
+}
+
+#versus-circle p {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  width: 67px;
+  height: 67px;
+  background-color: #595959;
+  border-radius: 50%;
+  color: white;
+  font-family: 'Patua One', cursive;
+  font-size: xx-large;
+
+}
