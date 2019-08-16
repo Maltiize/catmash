@@ -11,8 +11,8 @@ import { CatService } from '../_services/cat.service';
 })
 export class VoteComponent implements OnInit {
 
-  private catA: Cat;
-  private catB: Cat;
+  public catA: Cat;
+  public catB: Cat;
 
 
   constructor(private catservice: CatService) { }
