@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url_api: 'http://127.0.0.1:8000/api/',
+  url_api: 'http://phpstack-312483-957091.cloudwaysapps.com/api/',
   url_cat: 'cat',
 };
 
