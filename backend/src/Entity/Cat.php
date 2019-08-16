@@ -41,6 +41,7 @@ class Cat
      */
     private $nbVote;
 
+
     public function getId(): ?int
     {
         return $this->id;

@@ -28,18 +28,27 @@ export class CatService {
     return this.http.get<Cat[]>(this.urlCat)
       .pipe(
         tap(_ => ''),
-        catchError(this.handleError('Error while laoding the pussies', []))
       );
   }
 
-  /** GET AMR from the server */
   getCat(id: number): Observable<Cat> {
     const url = `${this.urlCat}/${id}`;
     return this.http.get<Cat>(url).pipe(
       tap(_ => ''),
-      catchError(this.handleError<Cat>('Error while laoding the puss' + id))
     );
   }
+
+  
+  getCatMatchup(id:number = null): Observable<Cat[]> {
+    const url = 
+      id ? `${this.urlCat}matchup/${id}` : `${this.urlCat}matchup`;
+
+    return this.http.get<Cat[]>(url).pipe(
+      tap(_ => ''),
+    );
+  }
+
+
 
 
   /**

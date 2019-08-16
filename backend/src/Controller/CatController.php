@@ -23,6 +23,7 @@ class CatController extends AbstractController
     private $response;
 
     // to not repeat myself
+    
     public function __construct()
     {
         $this->response = new Response();
@@ -52,9 +53,25 @@ class CatController extends AbstractController
         $this->response->setContent($jsonContent);
         return $this->response;
     }
+     /**
+     * @Route("/cat/matchup", name="cat_get_matchup",methods={"GET","HEAD"})
+     * @Route("/cat/matchup/{id}", name="cat_get_rand",methods={"GET","HEAD"})
+     * @return Response
+     */
+    public function getCatMatchup($id = null)
+    {
+
+        $resultArray = $this->getRandomCats(isset($id) ? 1 : 2, [$id]);
+
+        $normalizedCats = $this->serializer->normalize($resultArray);
+        $jsonContent = $this->serializer->serialize($normalizedCats, 'json');
+
+        $this->response->setContent($jsonContent);
+        return $this->response;
+    }
 
     /**
-     * @Route("/cat/{id}", name="cat_get",methods={"GET","HEAD"})
+     * @Route("/cat{id}", name="cat_get",methods={"GET","HEAD"})
      * @return Response
      */
     public function getCat($id)
@@ -79,15 +96,14 @@ class CatController extends AbstractController
     }
 
 
-
-    /**
-     * @Route("/cat/rand/{nb}", name="cat_get_rand",methods={"GET","HEAD"})
-     * @return Response
-     */
-    public function getCatRand($nb)
+    private function getRandomCats($nb = 0, $unusedIds = [])
     {
-
         $resultArray = [];
+
+        // its quite a bother to have a random doctrine entity's picker  without going full SQL 
+        // so im picking in a range of index limited by the number of cats 
+        // of course that would crash if the ids arent in a range
+        // but here we dont kill cats 
 
         $totalCat =  $this->getDoctrine()
             ->getRepository(Cat::class)
@@ -96,14 +112,19 @@ class CatController extends AbstractController
             ->getQuery()
             ->getSingleScalarResult();
 
-        if (!isset($nb) || $nb > $totalCat) 
-            $nb = $totalCat ;
-        
+
+        if (count($unusedIds) == $totalCat)
+            return array();
+
         $availableIds = range(0, $totalCat);
 
-        for ($i = 0; $i < $nb; $i++) {
+        foreach ($unusedIds as  $value)
+            if (isset($value) && isset($availableIds[$value]))
+                unset($availableIds[$value]);
 
-            $id = $availableIds[rand(0, count($availableIds)-1)];
+        for ($i = 0; $i < $nb && count($availableIds) != 0; $i++) {
+
+            $id = $availableIds[rand(0, count($availableIds) - 1)];
 
             array_push(
                 $resultArray,
@@ -115,10 +136,10 @@ class CatController extends AbstractController
             unset($availableIds[$id]);
         }
 
-        $normalizedCats = $this->serializer->normalize($resultArray);
-        $jsonContent = $this->serializer->serialize($normalizedCats, 'json');
-
-        $this->response->setContent($jsonContent);
-        return $this->response;
+        return $resultArray;
     }
+
+   
+
+
 }
