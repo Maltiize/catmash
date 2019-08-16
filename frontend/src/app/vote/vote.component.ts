@@ -1,5 +1,8 @@
+import { Cat } from "../_models/cat";
+
 import { Component, OnInit } from '@angular/core';
-import {CatService} from '../_services/cat.service'
+import {CatService} from '../_services/cat.service';
+
 
 @Component({
   selector: 'app-vote',
@@ -17,6 +20,7 @@ export class VoteComponent implements OnInit {
     this.catservice.getCatMatchup().subscribe((data)=>{
       this.catA = data[0];
       this.catB = data[1];
+      console.log(data);
     });
   }
 

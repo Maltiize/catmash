@@ -39,7 +39,7 @@ class CatController extends AbstractController
     }
 
     /**
-     * @Route("/cats", name="cat_index")
+     * @Route("/api/cats", name="cat_index")
      */
     public function index()
     {
@@ -54,8 +54,8 @@ class CatController extends AbstractController
         return $this->response;
     }
      /**
-     * @Route("/cat/matchup", name="cat_get_matchup",methods={"GET","HEAD"})
-     * @Route("/cat/matchup/{id}", name="cat_get_rand",methods={"GET","HEAD"})
+     * @Route("/api/cat/matchup", name="cat_get_matchup",methods={"GET","HEAD"})
+     * @Route("/api/cat/matchup/{id}", name="cat_get_rand",methods={"GET","HEAD"})
      * @return Response
      */
     public function getCatMatchup($id = null)
@@ -71,7 +71,7 @@ class CatController extends AbstractController
     }
 
     /**
-     * @Route("/cat{id}", name="cat_get",methods={"GET","HEAD"})
+     * @Route("/api/cat/{id}", name="cat_get",methods={"GET","HEAD"})
      * @return Response
      */
     public function getCat($id)

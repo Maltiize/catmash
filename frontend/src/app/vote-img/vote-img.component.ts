@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import { Cat } from "../_models/cat";
 
 @Component({
   selector: 'app-vote-img',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class VoteImgComponent implements OnInit {
 
 
-  
+  @Input('cat') cat: Cat;
+
 
   constructor() { }
 
