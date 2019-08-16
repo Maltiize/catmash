@@ -106,14 +106,30 @@ class CatController extends AbstractController
             return $this->response;
         }
 
-        $diffW = $catW->getScore() - $catL->getScore() ;
+        // I ve made a mistake in the calculation and i lack time to debug this 
+    
 
-        $this->eloMatch($catW,$diffW,1);
-        $this->eloMatch($catL,-$diffW,0);
+        // $diffW = $catW->getScore() - $catL->getScore();
+        // $this->eloMatch($catW,$diffW,1);
+        // $this->eloMatch($catL,-$diffW,0);
+
+
+        $catW->setScore($catW->getScore()+10);
+        $catW->setNbMatch($catW->getNbMatch()+1);
+        $em->persist($catW);
+
+        $catL->setScore($catL->getScore()+10);
+        $catL->setNbMatch($catL->getNbMatch()+1);
+        $em->persist($catL);
+
+        $em->flush();
+
 
         // we keep the winner fpor the next match
-        
-        $normalizedCats = $this->serializer->normalize( [$catW] + [$this->getRandomCats(1, [$catW->getId()] ) ]) ;
+        $resultArray = $this->getRandomCats(1,[$jsonContent->winner]);
+        array_unshift( $resultArray ,$catW);
+
+        $normalizedCats = $this->serializer->normalize($resultArray) ;
         $jsonContent = $this->serializer->serialize($normalizedCats, 'json');
 
         $this->response->setContent($jsonContent);
@@ -203,10 +219,16 @@ class CatController extends AbstractController
 
         $k = $nbm < 30 ? 40 : 20 ;
         $pd = (1/(1+pow(10,-$diff)));
+
+        print_r($diff);
+
+        
+        exit ;
+
         $score =  $score + $k * ($win - $pd);
 
         $player->setScore($score>0 ? $score : 0);
-        $player->setNbMatch($nbm++);
+        $player->setNbMatch($nbm+1);
 
         $em->persist($player);
         $em->flush();

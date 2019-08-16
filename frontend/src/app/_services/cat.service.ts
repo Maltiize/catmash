@@ -47,7 +47,7 @@ export class CatService {
   }
 
   postMatchupVote(idWinner: number,idLoser: number): Observable<Cat[]> {
-    const url = `${this.urlCat}/matchup/vote/${idWinner}/${idLoser}`;
+    const url = `${this.urlCat}/matchup/vote`;
     return this.http.post<Cat[]>(url,{winner:idWinner,loser:idLoser}).pipe(
       tap(_ => ''),
     );

@@ -1,7 +1,7 @@
 import { Cat } from "../_models/cat";
 
 import { Component, OnInit } from '@angular/core';
-import {CatService} from '../_services/cat.service';
+import { CatService } from '../_services/cat.service';
 
 
 @Component({
@@ -11,21 +11,32 @@ import {CatService} from '../_services/cat.service';
 })
 export class VoteComponent implements OnInit {
 
-  private catA:Cat;
-  private catB:Cat;
+  private catA: Cat;
+  private catB: Cat;
 
-  constructor(private catservice:CatService) { }
+
+  constructor(private catservice: CatService) { }
 
   ngOnInit() {
-    this.catservice.getCatMatchup().subscribe((data)=>{
+    this.catservice.getCatMatchup().subscribe((data) => {
       this.catA = data[0];
       this.catB = data[1];
       console.log(data);
     });
   }
 
-  onVote(event){
-    console.log(event);
+  onVote(event) {
+
+    let loser = event === this.catA.id ? this.catB.id : this.catB.id;
+
+    this.catservice.postMatchupVote(event, loser).subscribe((data) => {
+
+      if (data[0].id === this.catA.id)
+        this.catB = data[1];
+      else
+        this.catA = data[1];
+
+    })
   }
 
 }
