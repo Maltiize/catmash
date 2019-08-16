@@ -38,13 +38,13 @@ class CatController extends AbstractController
     }
 
     /**
-     * @Route("/api/cats", name="cat_index")
+     * @Route("/api/cat", name="cat_index")
      */
     public function index()
     {
         $cats = $this->getDoctrine()
             ->getRepository(Cat::class)
-            ->findAll();
+            ->findBy(array(), array('score' => 'DESC'));
 
         $normalizedCats = $this->serializer->normalize($cats);
         $jsonContent = $this->serializer->serialize($normalizedCats, 'json');

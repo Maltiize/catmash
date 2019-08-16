@@ -1,7 +1,7 @@
 import { Cat } from "../_models/cat";
+import { CatService } from '../_services/cat.service';
 
 import { Component, OnInit } from '@angular/core';
-import { CatService } from '../_services/cat.service';
 
 
 @Component({

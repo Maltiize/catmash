@@ -6,6 +6,7 @@ export class Cat {
     url: string;
     score: number;
     nbvote: string;
+    rank:number;
 
     constructor(cat: any = null) {
 
@@ -15,7 +16,8 @@ export class Cat {
         this.url = cat && cat.url || null;
         this.score = cat && cat.score || null;
         this.nbvote = cat && cat.nbvote || null;
-        
+        this.rank = cat && cat.rank || null;
+
     }
 
 }

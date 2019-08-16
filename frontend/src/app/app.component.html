@@ -1,3 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-  <app-vote></app-vote>
+<div  id="title-app" class="row shadow-lg bg-white"> 
+
+    <div id="menu">
+        <button mat-button [matMenuTriggerFor]="menu">MENU</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/">Match</button>
+          <button mat-menu-item routerLink="/leaderboard">LeaderBoard</button>
+        </mat-menu>
+        
+    </div>
+
+    <div>
+        CATMASH
+    </div>
+    
+     
+</div>
+<router-outlet></router-outlet>
