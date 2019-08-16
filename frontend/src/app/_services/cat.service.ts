@@ -21,7 +21,6 @@ export class CatService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-
   ) { }
 
   getCats(): Observable<Cat[]> {
@@ -39,16 +38,20 @@ export class CatService {
   }
 
   
-  getCatMatchup(id:number = null): Observable<Cat[]> {
-    const url = 
-      id ? `${this.urlCat}matchup/${id}` : `${this.urlCat}matchup`;
+  getCatMatchup(unusedId:number = null): Observable<Cat[]> {
+    const url =  `${this.urlCat}/matchup`;
 
     return this.http.get<Cat[]>(url).pipe(
       tap(_ => ''),
     );
   }
 
-
+  postMatchupVote(idWinner: number,idLoser: number): Observable<Cat[]> {
+    const url = `${this.urlCat}/matchup/vote/${idWinner}/${idLoser}`;
+    return this.http.post<Cat[]>(url,{winner:idWinner,loser:idLoser}).pipe(
+      tap(_ => ''),
+    );
+  }
 
 
   /**

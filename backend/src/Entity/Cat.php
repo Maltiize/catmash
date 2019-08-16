@@ -39,7 +39,7 @@ class Cat
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $nbVote;
+    private $nbMatch;
 
 
     public function getId(): ?int
@@ -71,14 +71,14 @@ class Cat
         return $this;
     }
 
-    public function getNbVote(): ?int
+    public function getNbMatch(): ?int
     {
-        return $this->nbVote;
+        return $this->nbMatch;
     }
 
-    public function setVote(?int $nbVote): self
+    public function setNbMatch(?int $nbMatch): self
     {
-        $this->nbVote = $nbVote;
+        $this->nbMatch = $nbMatch;
 
         return $this;
     }

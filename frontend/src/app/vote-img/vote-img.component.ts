@@ -8,13 +8,17 @@ import { Cat } from "../_models/cat";
 })
 export class VoteImgComponent implements OnInit {
 
-
   @Input('cat') cat: Cat;
-
+  @Output() vote: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+    this.cat = null ;
+  }
+
+  voteEmitter(){
+    this.vote.emit(this.cat.id);
   }
 
 }

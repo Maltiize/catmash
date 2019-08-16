@@ -24,4 +24,8 @@ export class VoteComponent implements OnInit {
     });
   }
 
+  onVote(event){
+    console.log(event);
+  }
+
 }

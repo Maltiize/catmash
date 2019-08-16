@@ -1,10 +1,10 @@
-<div class="cardbox shadow-lg bg-white">
+<div (click)="voteEmitter()" class="cardbox shadow-lg bg-white">
 
   <div class="cardbox-heading">
    
     <!--/ dropdown -->
     <div class=" card-headion-title">
-        {{cat.name}}
+    {{ cat.name | uppercase  }}
     </div>
     <!--/ media -->
   </div>
