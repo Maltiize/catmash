@@ -3,7 +3,14 @@
 <div  id="title-app" class="row shadow-lg bg-white"> 
 
     <div id="menu">
-        <button mat-button [matMenuTriggerFor]="menu">MENU</button>
+        <button mat-button [matMenuTriggerFor]="menu">
+
+            <div class="hbg"></div>
+            <div class="hbg"></div>
+            <div class="hbg"></div>
+            
+        </button>
+        
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="/">Match</button>
           <button mat-menu-item routerLink="/leaderboard">LeaderBoard</button>

@@ -118,7 +118,6 @@ class CatController extends AbstractController
         $catW->setNbMatch($catW->getNbMatch()+1);
         $em->persist($catW);
 
-        $catL->setScore($catL->getScore()+10);
         $catL->setNbMatch($catL->getNbMatch()+1);
         $em->persist($catL);
 

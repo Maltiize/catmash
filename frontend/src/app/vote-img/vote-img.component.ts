@@ -11,6 +11,9 @@ export class VoteImgComponent implements OnInit {
   @Input('cat') cat: Cat;
   @Output() vote: EventEmitter<any> = new EventEmitter();
 
+
+  hover:boolean = false;
+
   constructor() { }
 
   ngOnInit() {

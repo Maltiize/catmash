@@ -27,7 +27,7 @@ export class LeaderboardComponent implements OnInit {
   ngOnInit(){
       this.catservice.getCats().subscribe((data)=>{
         data.forEach((element,index) => {
-          element.rank = index ;
+          element.rank = index+1 ;
         });
         this.dataSource = new MatTableDataSource<Cat>(data);
         this.dataSource.paginator = this.paginator;

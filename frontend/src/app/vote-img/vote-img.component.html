@@ -1,10 +1,11 @@
-<div (click)="voteEmitter()" class="cardbox shadow-lg bg-white">
+<div [ngClass]="{'mat-elevation-z9': hover,'mat-elevation-z3': !hover}"  (mouseout)="hover=false" (mouseover)="hover=true" (click)="voteEmitter()"
+  class="cardbox  bg-white ">
 
   <div class="cardbox-heading">
-   
+
     <!--/ dropdown -->
     <div class=" card-headion-title">
-    {{ cat.name | uppercase  }}
+      {{ cat.name | uppercase  }} 
     </div>
     <!--/ media -->
   </div>
@@ -15,7 +16,7 @@
   </div>
   <!--/ cardbox-item -->
   <div class="cardbox-base">
-    
 
 
-</div>
+
+  </div>

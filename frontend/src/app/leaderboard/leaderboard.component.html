@@ -1,4 +1,4 @@
-<div class="offset-3 col-6 mat-elevation-z4">
+<div class="offset-sm-1 col-sm-10 offset-md-2 col-md-8 col-lg-6 offset-lg-3 mat-elevation-z4">
   <table id="table-score" class="col-12"  mat-table [dataSource]="dataSource">
 
     <!--- Note that these columns can be defined in any order.
@@ -21,7 +21,7 @@
 
     <!-- Weight Column -->
     <ng-container matColumnDef="nbMatch">
-      <th mat-header-cell *matHeaderCellDef> NUMBER OF MATCHES </th>
+      <th mat-header-cell *matHeaderCellDef> MATCHES </th>
       <td mat-cell *matCellDef="let element"> {{element.nbMatch}} </td>
     </ng-container>
 

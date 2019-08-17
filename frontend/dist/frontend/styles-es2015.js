@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /mnt/c/wamp64/www/catmash/frontend/src/styles/styles.css */"./src/styles/styles.css");
+module.exports = __webpack_require__(/*! C:\wamp64\www\catmash\frontend\src\styles\styles.css */"./src/styles/styles.css");
 
 
 /***/ })
