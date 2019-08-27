@@ -16,6 +16,14 @@ class Cat
      */
     private $id;
 
+
+    /**
+     *
+     * @ORM\Column(name="test", type="guid")
+     * @ORM\GeneratedValue(strategy="UUID")
+     */
+    protected $test;
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -104,6 +112,4 @@ class Cat
 
         return $this;
     }
-
-
 }
