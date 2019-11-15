@@ -1,9 +1,9 @@
-# catmash
+# Catmash
 
 Exercice full stack pour l'atelier
 
 
-### front end en angular, pour l'installer
+### Front end en angular, pour l'installer
 
 > npm install
 
@@ -11,7 +11,7 @@ Exercice full stack pour l'atelier
 > ng serve
 
 
-### back end symfony, pour l'installer 
+### Back end symfony, pour l'installer 
 
 > composer install 
 
@@ -26,7 +26,7 @@ pour initialiser les données et mettre en place la structure de la bdd
 
 
 
-### l'api rest 
+### L'api rest 
 
 
 GET /api/cat => array(Cat)
@@ -40,7 +40,7 @@ Pour obtenir un nouveau matchup de chat au hasard
 
 (winner:Cat.id,loser:Cat.id) => POST /api/cat/matchup/vote => [Cat, Cat]
 
-Pour voter dans un match, renvois un nouveau match avec le gagnant du dernier match en première position
+Pour voter dans un match, renvoit un nouveau match avec le gagnant du dernier match en première position
 
 
 
