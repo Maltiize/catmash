@@ -2,7 +2,6 @@
 
 Exercice full stack pour l'atelier
 
-http://phpstack-312483-958523.cloudwaysapps.com/
 
 ### front end en angular, pour l'installer
 
